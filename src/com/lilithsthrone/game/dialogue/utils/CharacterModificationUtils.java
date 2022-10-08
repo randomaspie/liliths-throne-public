@@ -432,8 +432,8 @@ public class CharacterModificationUtils {
 			BodyChanging.getTarget().setBirthday(BodyChanging.getTarget().getBirthday().plusYears(age-(CharacterModificationUtils.MAX_AGE_NPC-GameCharacter.MINIMUM_AGE)));
 		}
 		
-		if(BodyChanging.getTarget().isPlayer() && age<18) {
-			BodyChanging.getTarget().setBirthday(BodyChanging.getTarget().getBirthday().minusYears(18-age));
+		if(BodyChanging.getTarget().isPlayer() && age<GameCharacter.MINIMUM_AGE) {
+			BodyChanging.getTarget().setBirthday(BodyChanging.getTarget().getBirthday().minusYears(GameCharacter.MINIMUM_AGE-age));
 		}
 		
 		if(age<0) {
@@ -467,7 +467,7 @@ public class CharacterModificationUtils {
 				contentSB.append("<div class='container-full-width' style='width:calc(33.3% - 16px);'>");
 					contentSB.append(applyDateWrapper("Age", "AGE", "", "",
 							String.valueOf(BodyChanging.getTarget().getAgeValue()),
-							BodyChanging.getTarget().getAgeValue()<=18,
+							BodyChanging.getTarget().getAgeValue()<=GameCharacter.MINIMUM_AGE,
 							BodyChanging.getTarget().isPlayer()
 								?BodyChanging.getTarget().getAgeValue()>=MAX_AGE_PLAYER
 								:BodyChanging.getTarget().getAgeValue()>=MAX_AGE_NPC));
@@ -511,7 +511,7 @@ public class CharacterModificationUtils {
 		contentSB.append("<div class='container-half-width'>");
 			contentSB.append(applyDateWrapper("Age", "AGE", "", "",
 					String.valueOf(BodyChanging.getTarget().getAgeValue()),
-					BodyChanging.getTarget().getAgeValue()<=18,
+					BodyChanging.getTarget().getAgeValue()<=GameCharacter.MINIMUM_AGE,
 					BodyChanging.getTarget().isPlayer()
 						?BodyChanging.getTarget().getAgeValue()>=MAX_AGE_PLAYER
 						:BodyChanging.getTarget().getAgeValue()>=MAX_AGE_NPC));
@@ -563,7 +563,14 @@ public class CharacterModificationUtils {
 		contentSB.append("<div class='container-full-width'>");
 		
 			contentSB.append("<div class='container-full-width' style='padding:0;'>");
-				contentSB.append("<p style='text-align:center; margin:0; padding:0;'><b>Fetishes</b></p>");
+			if(!Main.game.isPrologueFinished()) {
+				contentSB.append("<div class='container-full-width' style='text-align:center;'><h6>Fetishes</h6></div>");
+			} else {
+				contentSB.append("<div class='container-full-width' style='padding:0;'>");
+					contentSB.append("<p style='text-align:center; margin:0; padding:0;'><b>Fetishes</b></p>");
+			}
+
+
 				
 				// Like/dislike/owned
 				int i=0;
@@ -932,13 +939,13 @@ public class CharacterModificationUtils {
 	public static String getAgeAppearanceChoiceDiv() {
 		return applyFullVariableWrapper(
 				"Age Appearance",
-				UtilText.parse(BodyChanging.getTarget(), "Change how old [npc.name] [npc.verb(appear)] to be. [npc.She] [npc.is] limited to looking as young as 18, or up to ten years older than [npc.her] real age."
+				UtilText.parse(BodyChanging.getTarget(), "Change how old [npc.name] [npc.verb(appear)] to be. [npc.She] [npc.is] limited to looking as young as 14, or up to ten years older than [npc.her] real age."
 						+ "<br/><i>This is purely a cosmetic change, and doesn't affect any in-game choices.</i>"),
 				"AGE_APPEARANCE",
 				"1",
 				"5",
 				String.valueOf(BodyChanging.getTarget().getAppearsAsAgeValue()),
-				BodyChanging.getTarget().getAppearsAsAgeValue()<=18,
+				BodyChanging.getTarget().getAppearsAsAgeValue()<=GameCharacter.MINIMUM_AGE,
 				BodyChanging.getTarget().getAppearsAsAgeValue()>=(BodyChanging.getTarget().getAgeValue()+10))
 				
 				+ applyWrapper("Birthday",

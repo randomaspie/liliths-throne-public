@@ -1878,7 +1878,8 @@ public class CharacterCreation {
 						"<div class='container-full-width' style='text-align:center;'>"
 							+ "<i>For each increase in sexual experience, you will gain 1 corruption. (You can see your corruption, along with your other attributes, in the character panel in the left of the screen.)</i>"
 						+ "</div>"
-						+CharacterModificationUtils.getSexualExperienceDiv());
+						+CharacterModificationUtils.getSexualExperienceDiv()
+						+CharacterModificationUtils.getFetishChoiceDiv());
 			
 			return UtilText.nodeContentSB.toString();
 		}
@@ -1937,7 +1938,7 @@ public class CharacterCreation {
 		
 		Main.game.getNpc(Lilaya.class).setSkinCovering(new Covering(BodyCoveringType.HUMAN, Main.game.getPlayer().getCovering(BodyCoveringType.HUMAN).getPrimaryColour()), true);
 
-		Main.game.getNpc(Lilaya.class).setBirthday(LocalDateTime.of(Main.game.getPlayer().getBirthday().getYear()-22+18, Main.game.getNpc(Lilaya.class).getBirthMonth(), Main.game.getNpc(Lilaya.class).getDayOfBirth(), 12, 0));
+		Main.game.getNpc(Lilaya.class).setBirthday(LocalDateTime.of(Main.game.getPlayer().getBirthday().getYear()-22+GameCharacter.MINIMUM_AGE, Main.game.getNpc(Lilaya.class).getBirthMonth(), Main.game.getNpc(Lilaya.class).getDayOfBirth(), 12, 0));
 		
 		Main.game.clearTextStartStringBuilder();
 		Main.game.clearTextEndStringBuilder();

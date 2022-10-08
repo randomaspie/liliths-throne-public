@@ -33,7 +33,7 @@ public class LodgerImport extends NPC {
 	
 	public LodgerImport(boolean isImported) {
 		super(isImported, new NameTriplet("Lodger"), "", "-",
-				18, Month.JUNE, 10,
+				GameCharacter.MINIMUM_AGE, Month.JUNE, 10,
 				1, Gender.F_V_B_FEMALE, Subspecies.HUMAN, RaceStage.HUMAN,
 				new CharacterInventory(0), WorldType.EMPTY, PlaceType.GENERIC_HOLDING_CELL, false);
 	}
