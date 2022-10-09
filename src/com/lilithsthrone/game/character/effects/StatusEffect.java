@@ -11328,7 +11328,7 @@ public class StatusEffect {
 		}
 		@Override
 		public boolean isConditionsMet(GameCharacter target) {
-			return !target.isPlayer() || Main.game.isInSex();
+			return true;
 		}
 		@Override
 		public boolean isSexEffect() {
