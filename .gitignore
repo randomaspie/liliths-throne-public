@@ -19,3 +19,4 @@ java -Xms1024mv -jar LT.jar.txt
 res/mods
 !res/mods/innoxia
 !res/mods/modding.txt
+LT.bat
