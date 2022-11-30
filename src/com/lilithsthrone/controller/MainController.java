@@ -510,9 +510,9 @@ public class MainController implements Initializable {
 						checkLastKeys();
 						
 						if(event.getCode()==KeyCode.END && Main.DEBUG){
-
-							Main.game.getCharactersPresent().get(0).incrementAttribute(Attribute.MAJOR_CORRUPTION, 100);
-							Main.game.getCharactersPresent().get(0).addFetish(Fetish.FETISH_BONDAGE_APPLIER);
+							
+//							Main.game.getCharactersPresent().get(0).incrementAttribute(Attribute.MAJOR_CORRUPTION, 100);
+//							Main.game.getCharactersPresent().get(0).addFetish(Fetish.FETISH_BONDAGE_APPLIER);
 							
 //							Main.game.getCharactersPresent().get(0).addClothing(Main.game.getItemGen().generateClothing("innoxia_penis_condom", PresetColour.CLOTHING_PINK, false), 2, false, false);
 //							Main.game.getCharactersPresent().get(0).removeFetish(Fetish.FETISH_CUM_STUD);
@@ -1265,6 +1265,9 @@ public class MainController implements Initializable {
 		DialogueNode currentNode = Main.game.getCurrentDialogueNode();
 		if (Main.game.isInCombat()) {
 			MiscController.initCombatListeners();
+			if(currentNode.getDialogueNodeType() == DialogueNodeType.INVENTORY) {
+				InventoryController.initInventoryListeners();
+			}
 		} else if (currentNode.equals(BodyChanging.BODY_CHANGING_ASS)
 				|| currentNode.equals(ScarlettsShop.HELENAS_SHOP_CUSTOM_SLAVE_BODY_ASS)) {
 			CreationController.initAnusCapacityListeners();
@@ -1489,7 +1492,8 @@ public class MainController implements Initializable {
 			CoveringController.initHairStyleListeners();
 		} else if (currentNode.equals(CharacterCreation.CHOOSE_ADVANCED_APPEARANCE_PIERCINGS)
 				|| currentNode.equals(ScarlettsShop.HELENAS_SHOP_CUSTOM_SLAVE_BODY_PIERCINGS)
-				|| currentNode.equals(CompanionManagement.SLAVE_MANAGEMENT_COSMETICS_PIERCINGS)) {
+				|| currentNode.equals(CompanionManagement.SLAVE_MANAGEMENT_COSMETICS_PIERCINGS)
+				|| currentNode.equals(SuccubisSecrets.SHOP_BEAUTY_SALON_PIERCINGS)) {
 			CoveringController.initPiercingsListeners();
 		} else if (currentNode.equals(CharacterCreation.CHOOSE_ADVANCED_APPEARANCE_TATTOOS)
 				|| currentNode.equals(CompanionManagement.SLAVE_MANAGEMENT_TATTOOS)
@@ -1511,6 +1515,7 @@ public class MainController implements Initializable {
 		} else if (currentNode.equals(CharacterCreation.CHOOSE_SEX_EXPERIENCE)
 				|| currentNode.equals(ScarlettsShop.HELENAS_SHOP_CUSTOM_SLAVE_FINISH)) {
 			CreationController.initSexExperienceListeners();
+			CreationController.initFetishListeners();
 		} else if (currentNode.equals(CharacterCreation.IMPORT_CHOOSE)) {
 			FileController.initPlayerImportListeners();
 		} else if (currentNode.equals(CharactersPresentDialogue.MENU)) {
@@ -1652,6 +1657,15 @@ public class MainController implements Initializable {
 			MiscController.initSpellListeners(null);
 		} else if (currentNode.equals(SpellManagement.CHARACTER_SPELLS_WATER)) {
 			MiscController.initSpellListeners(SpellSchool.WATER);
+		} else if (currentNode.equals(SuccubisSecrets.SHOP_BEAUTY_SALON_OTHER)) {
+			CoveringController.initAssHairListeners();
+			CoveringController.initBleachingListeners();
+			CoveringController.initFacialHairListeners();
+			CoveringController.initPubicHairListeners();
+			CoveringController.initUnderarmHairListeners();
+		} else if (currentNode.equals(SuccubisSecrets.SHOP_BEAUTY_SALON_HAIR)) {
+			CoveringController.initHairLengthListeners();
+			CoveringController.initHairStyleListeners();
 		}
 		setResponseEventListeners();
 	}
