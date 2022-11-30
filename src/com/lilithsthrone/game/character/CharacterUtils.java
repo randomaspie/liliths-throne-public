@@ -1942,6 +1942,11 @@ public class CharacterUtils {
 		// Body (height):
 		int height = character.getHeightValue()-15 + Util.random.nextInt(30) + 1;
 		
+		if(character.getAgeValue()<21 && !character.getHeight().isShortStature()){
+			float femininityheightratio = character.isFeminine()?character.getRace().getRacialBody().getFemaleHeight()/170:character.getRace().getRacialBody().getMaleHeight()/180;
+			height = (int) ( height - (float)(21-character.getAgeValue())*femininityheightratio);
+		}
+
 		// Keep height within category if short stature:
 		if(character.getHeight()==Height.NEGATIVE_THREE_MINIMUM
 				|| character.getHeight()==Height.NEGATIVE_TWO_MINIMUM

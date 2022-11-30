@@ -23,7 +23,7 @@ public enum Height {
 	NEGATIVE_ONE_TINY("tiny", 106, 122, PresetColour.GENERIC_SIZE_ONE),
 	
 	/**4' to 5'*/
-	ZERO_TINY("small", 122, 152, PresetColour.GENERIC_SIZE_ONE),
+	ZERO_TINY("very short", 122, 152, PresetColour.GENERIC_SIZE_ONE),
 	
 	/**5' to 5'6"*/
 	ONE_SHORT("short", 152, 166, PresetColour.GENERIC_SIZE_TWO),
