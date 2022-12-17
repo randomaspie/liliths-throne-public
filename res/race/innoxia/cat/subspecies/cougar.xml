@@ -16,6 +16,7 @@
 		[#targetedBody.setCovering(BODY_COVERING_TYPE_FELINE_FUR, COVERING_PATTERN_NONE, COVERING_MODIFIER_SHORT, COLOUR_COVERING_TAN, false, COLOUR_COVERING_BLACK, false)]
 		[#targetedBody.setCovering(BODY_COVERING_TYPE_HAIR_FELINE_FUR, COVERING_PATTERN_NONE, COLOUR_COVERING_TAN, false, COLOUR_COVERING_BLACK, false)]
 		[#targetedBody.updateCoverings(true, true, true, true)]
+		[#targetedBody.setHeight(targetedBody.getHeightValue()*1.05)]
 		[#targetedBody.setBodySize(55)]
 		[#targetedBody.setMuscle(75)]
 	]]></applySubspeciesChanges>

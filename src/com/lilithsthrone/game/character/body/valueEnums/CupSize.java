@@ -1,5 +1,9 @@
 package com.lilithsthrone.game.character.body.valueEnums;
 
+import java.util.List;
+import com.lilithsthrone.utils.Util;
+
+
 /**
  * Measurements are in inches. Measured in bust to underbust using the UK system.
  * 
@@ -9,23 +13,23 @@ package com.lilithsthrone.game.character.body.valueEnums;
  */
 public enum CupSize {
 	
-	FLAT("flat", "flat", 0),
+	FLAT(Util.newArrayListOfValues("flat"), "flat", 0),
 
 	// Training bra sizes:
 	
-	TRAINING_AAA("almost unnoticeable", "training-AAA", 1) {
+	TRAINING_AAA(Util.newArrayListOfValues("almost unnoticeable", "insubstantial", "budding"), "training-AAA", 1) {
 		@Override
 		public boolean isTrainingBraSize() {
 			return true;
 		}
 	},
-	TRAINING_AA("almost unnoticeable", "training-AA", 2) {
+	TRAINING_AA(Util.newArrayListOfValues("almost unnoticeable", "insubstantial", "budding"), "training-AA", 2) {
 		@Override
 		public boolean isTrainingBraSize() {
 			return true;
 		}
 	},
-	TRAINING_A("almost unnoticeable", "training-A", 3) {
+	TRAINING_A(Util.newArrayListOfValues("almost unnoticeable", "insubstantial", "budding"), "training-A", 3) {
 		@Override
 		public boolean isTrainingBraSize() {
 			return true;
@@ -34,106 +38,106 @@ public enum CupSize {
 	
 	// Normal cup sizes:
 	
-	AA("extremely tiny", "AA", 4),
-	A("tiny", "A", 5),
-	B("small", "B", 6),
-	C("average-sized", "C", 7),
-	D("large", "D", 8),
-	DD("large", "DD", 9),
-	E("sizeable", "E", 10),
-	F("sizeable", "F", 11),
-	FF("sizeable", "FF", 12),
-	G("huge", "G", 13),
-	GG("huge", "GG", 14),
-	H("huge", "H", 15),
-	HH("massive", "HH", 16),
-	J("massive", "J", 17),
-	JJ("massive", "JJ", 18),
-	K("gigantic", "K", 19),
-	KK("gigantic", "KK", 20),
-	L("gigantic", "L", 21),
-	LL("colossal", "LL", 22),
-	M("colossal", "M", 23),
-	MM("colossal", "MM", 24),
-	N("colossal", "N", 25),
+	AA(Util.newArrayListOfValues("very tiny", "washboard", "minuscule", "slight"), "AA", 4),
+	A(Util.newArrayListOfValues("tiny", "meager", "underdeveloped", "compact"), "A", 5),
+	B(Util.newArrayListOfValues( "small", "below-average", "petite", "sporty"), "B", 6),
+	C(Util.newArrayListOfValues("average", "average-sized", "cute", "modest"), "C", 7),
+	D(Util.newArrayListOfValues("large", "above-average", "full", "ample", "big"), "D", 8),
+	DD(Util.newArrayListOfValues("very large", "considerable", "fairly large", "hefty"), "DD", 9),
+	E(Util.newArrayListOfValues("substantial", "sizeable", "generous"), "E", 10),
+	F(Util.newArrayListOfValues("heavy", "heavyset", "polstered", "pillowy"), "F", 11),
+	FF(Util.newArrayListOfValues("heavy", "heavyset", "polstered", "pillowy"), "FF", 12),
+	G(Util.newArrayListOfValues("huge", "burdensome", "bountiful", "jumbo-sized"), "G", 13),
+	GG(Util.newArrayListOfValues("huge", "burdensome", "bountiful", "jumbo-sized"), "GG", 14),
+	H(Util.newArrayListOfValues("massive", "burdensome", "jumbo-sized"), "H", 15),
+	HH(Util.newArrayListOfValues("massive", "burdensome", "jumbo-sized"), "HH", 16),
+	J(Util.newArrayListOfValues("enormous", "unwieldy", "oversized"), "J", 17),
+	JJ(Util.newArrayListOfValues("enormous", "unwieldy", "oversized"), "JJ", 18),
+	K(Util.newArrayListOfValues("gigantic", "unwieldy", "oversized"), "K", 19),
+	KK(Util.newArrayListOfValues("gigantic", "unwieldy", "oversized"), "KK", 20),
+	L(Util.newArrayListOfValues("colossal", "immense", "oversized"), "L", 21),
+	LL(Util.newArrayListOfValues("colossal", "immense", "oversized"), "LL", 22),
+	M(Util.newArrayListOfValues("gargantuan", "immense", "oversized"), "M", 23),
+	MM(Util.newArrayListOfValues("titanic", "immense", "oversized"), "MM", 24),
+	N(Util.newArrayListOfValues("monstrous", "immense", "oversized"), "N", 25),
 	
 	// Hyper sizes:
 	
-	X_AA("extreme", "X-AA", 26),
-	X_A("extreme", "X-A", 27),
-	X_B("extreme", "X-B", 28),
-	X_C("extreme", "X-C", 29),
-	X_D("extreme", "X-D", 30),
-	X_DD("extreme", "X-DD", 31),
-	X_E("extreme", "X-E", 32),
-	X_F("extreme", "X-F", 33),
-	X_FF("extreme", "X-FF", 34),
-	X_G("extreme", "X-G", 35),
-	X_GG("extreme", "X-GG", 36),
-	X_H("extreme", "X-H", 37),
-	X_HH("extreme", "X-HH", 38),
-	X_J("extreme", "X-J", 39),
-	X_JJ("extreme", "X-JJ", 40),
-	X_K("extreme", "X-K", 41),
-	X_KK("extreme", "X-KK", 42),
-	X_L("extreme", "X-L", 43),
-	X_LL("extreme", "X-LL", 44),
-	X_M("extreme", "X-M", 45),
-	X_MM("extreme", "X-MM", 46),
-	X_N("extreme", "X-N", 47),
+	X_AA(Util.newArrayListOfValues("extreme"), "X-AA", 26),
+	X_A(Util.newArrayListOfValues("extreme"), "X-A", 27),
+	X_B(Util.newArrayListOfValues("extreme"), "X-B", 28),
+	X_C(Util.newArrayListOfValues("extreme"), "X-C", 29),
+	X_D(Util.newArrayListOfValues("extreme"), "X-D", 30),
+	X_DD(Util.newArrayListOfValues("extreme"), "X-DD", 31),
+	X_E(Util.newArrayListOfValues("extreme"), "X-E", 32),
+	X_F(Util.newArrayListOfValues("extreme"), "X-F", 33),
+	X_FF(Util.newArrayListOfValues("extreme"), "X-FF", 34),
+	X_G(Util.newArrayListOfValues("extreme"), "X-G", 35),
+	X_GG(Util.newArrayListOfValues("extreme"), "X-GG", 36),
+	X_H(Util.newArrayListOfValues("extreme"), "X-H", 37),
+	X_HH(Util.newArrayListOfValues("extreme"), "X-HH", 38),
+	X_J(Util.newArrayListOfValues("extreme"), "X-J", 39),
+	X_JJ(Util.newArrayListOfValues("extreme"), "X-JJ", 40),
+	X_K(Util.newArrayListOfValues("extreme"), "X-K", 41),
+	X_KK(Util.newArrayListOfValues("extreme"), "X-KK", 42),
+	X_L(Util.newArrayListOfValues("extreme"), "X-L", 43),
+	X_LL(Util.newArrayListOfValues("extreme"), "X-LL", 44),
+	X_M(Util.newArrayListOfValues("extreme"), "X-M", 45),
+	X_MM(Util.newArrayListOfValues("extreme"), "X-MM", 46),
+	X_N(Util.newArrayListOfValues("extreme"), "X-N", 47),
 
-	XX_AA("monstrous", "XX-AA", 48),
-	XX_A("monstrous", "XX-A", 49),
-	XX_B("monstrous", "XX-B", 50),
-	XX_C("monstrous", "XX-C", 51),
-	XX_D("monstrous", "XX-D", 52),
-	XX_DD("monstrous", "XX-DD", 53),
-	XX_E("monstrous", "XX-E", 54),
-	XX_F("monstrous", "XX-F", 55),
-	XX_FF("monstrous", "XX-FF", 56),
-	XX_G("monstrous", "XX-G", 57),
-	XX_GG("monstrous", "XX-GG", 58),
-	XX_H("monstrous", "XX-H", 59),
-	XX_HH("monstrous", "XX-HH", 60),
-	XX_J("monstrous", "XX-J", 61),
-	XX_JJ("monstrous", "XX-JJ", 62),
-	XX_K("monstrous", "XX-K", 63),
-	XX_KK("monstrous", "XX-KK", 64),
-	XX_L("monstrous", "XX-L", 65),
-	XX_LL("monstrous", "XX-LL", 66),
-	XX_M("monstrous", "XX-M", 67),
-	XX_MM("monstrous", "XX-MM", 68),
-	XX_N("monstrous", "XX-N", 69),
+	XX_AA(Util.newArrayListOfValues("hyper"), "XX-AA", 48),
+	XX_A(Util.newArrayListOfValues("hyper"), "XX-A", 49),
+	XX_B(Util.newArrayListOfValues("hyper"), "XX-B", 50),
+	XX_C(Util.newArrayListOfValues("hyper"), "XX-C", 51),
+	XX_D(Util.newArrayListOfValues("hyper"), "XX-D", 52),
+	XX_DD(Util.newArrayListOfValues("hyper"), "XX-DD", 53),
+	XX_E(Util.newArrayListOfValues("hyper"), "XX-E", 54),
+	XX_F(Util.newArrayListOfValues("hyper"), "XX-F", 55),
+	XX_FF(Util.newArrayListOfValues("hyper"), "XX-FF", 56),
+	XX_G(Util.newArrayListOfValues("hyper"), "XX-G", 57),
+	XX_GG(Util.newArrayListOfValues("hyper"), "XX-GG", 58),
+	XX_H(Util.newArrayListOfValues("hyper"), "XX-H", 59),
+	XX_HH(Util.newArrayListOfValues("hyper"), "XX-HH", 60),
+	XX_J(Util.newArrayListOfValues("hyper"), "XX-J", 61),
+	XX_JJ(Util.newArrayListOfValues("hyper"), "XX-JJ", 62),
+	XX_K(Util.newArrayListOfValues("hyper"), "XX-K", 63),
+	XX_KK(Util.newArrayListOfValues("hyper"), "XX-KK", 64),
+	XX_L(Util.newArrayListOfValues("hyper"), "XX-L", 65),
+	XX_LL(Util.newArrayListOfValues("hyper"), "XX-LL", 66),
+	XX_M(Util.newArrayListOfValues("hyper"), "XX-M", 67),
+	XX_MM(Util.newArrayListOfValues("hyper"), "XX-MM", 68),
+	XX_N(Util.newArrayListOfValues("hyper"), "XX-N", 69),
 
-	XXX_AA("hyper", "XXX-AA", 70),
-	XXX_A("hyper", "XXX-A", 71),
-	XXX_B("hyper", "XXX-B", 72),
-	XXX_C("hyper", "XXX-C", 73),
-	XXX_D("hyper", "XXX-D", 74),
-	XXX_DD("hyper", "XXX-DD", 75),
-	XXX_E("hyper", "XXX-E", 76),
-	XXX_F("hyper", "XXX-F", 77),
-	XXX_FF("hyper", "XXX-FF", 78),
-	XXX_G("hyper", "XXX-G", 79),
-	XXX_GG("hyper", "XXX-GG", 80),
-	XXX_H("hyper", "XXX-H", 81),
-	XXX_HH("hyper", "XXX-HH", 82),
-	XXX_J("hyper", "XXX-J", 83),
-	XXX_JJ("hyper", "XXX-JJ", 84),
-	XXX_K("hyper", "XXX-K", 85),
-	XXX_KK("hyper", "XXX-KK", 86),
-	XXX_L("hyper", "XXX-L", 87),
-	XXX_LL("hyper", "XXX-LL", 88),
-	XXX_M("hyper", "XXX-M", 89),
-	XXX_MM("hyper", "XXX-MM", 90),
-	XXX_N("hyper", "XXX-N", 91);
+	XXX_AA(Util.newArrayListOfValues("unbelievably-huge"), "XXX-AA", 70),
+	XXX_A(Util.newArrayListOfValues("unbelievably-huge"), "XXX-A", 71),
+	XXX_B(Util.newArrayListOfValues("unbelievably-huge"), "XXX-B", 72),
+	XXX_C(Util.newArrayListOfValues("unbelievably-huge"), "XXX-C", 73),
+	XXX_D(Util.newArrayListOfValues("unbelievably-huge"), "XXX-D", 74),
+	XXX_DD(Util.newArrayListOfValues("unbelievably-huge"), "XXX-DD", 75),
+	XXX_E(Util.newArrayListOfValues("unbelievably-huge"), "XXX-E", 76),
+	XXX_F(Util.newArrayListOfValues("unbelievably-huge"), "XXX-F", 77),
+	XXX_FF(Util.newArrayListOfValues("unbelievably-huge"), "XXX-FF", 78),
+	XXX_G(Util.newArrayListOfValues("unbelievably-huge"), "XXX-G", 79),
+	XXX_GG(Util.newArrayListOfValues("unbelievably-huge"), "XXX-GG", 80),
+	XXX_H(Util.newArrayListOfValues("unbelievably-huge"), "XXX-H", 81),
+	XXX_HH(Util.newArrayListOfValues("unbelievably-huge"), "XXX-HH", 82),
+	XXX_J(Util.newArrayListOfValues("unbelievably-huge"), "XXX-J", 83),
+	XXX_JJ(Util.newArrayListOfValues("unbelievably-huge"), "XXX-JJ", 84),
+	XXX_K(Util.newArrayListOfValues("unbelievably-huge"), "XXX-K", 85),
+	XXX_KK(Util.newArrayListOfValues("unbelievably-huge"), "XXX-KK", 86),
+	XXX_L(Util.newArrayListOfValues("unbelievably-huge"), "XXX-L", 87),
+	XXX_LL(Util.newArrayListOfValues("unbelievably-huge"), "XXX-LL", 88),
+	XXX_M(Util.newArrayListOfValues("unbelievably-huge"), "XXX-M", 89),
+	XXX_MM(Util.newArrayListOfValues("unbelievably-huge"), "XXX-MM", 90),
+	XXX_N(Util.newArrayListOfValues("unbelievably-huge"), "XXX-N", 91);
 
-	private String descriptor;
+	private List<String> names;
 	private String cupSizeName;
 	private int measurement;
 
-	private CupSize(String descriptor, String cupSizeName, int measurement) {
-		this.descriptor = descriptor;
+	private CupSize(List<String> names, String cupSizeName, int measurement) {
+		this.names = names;
 		this.cupSizeName = cupSizeName;
 		this.measurement = measurement;
 	}
@@ -177,7 +181,7 @@ public enum CupSize {
 	 * To fit into a sentence: "You have "+getDescriptor()+" breasts."
 	 */
 	public String getDescriptor() {
-		return descriptor;
+		return Util.randomItemFrom(names);
 	}
 
 	public String getCupSizeName() {

@@ -1,5 +1,7 @@
 package com.lilithsthrone.game.character.body.valueEnums;
 
+import java.util.List;
+import com.lilithsthrone.utils.Util;
 import com.lilithsthrone.utils.colours.Colour;
 import com.lilithsthrone.utils.colours.PresetColour;
 
@@ -10,24 +12,24 @@ import com.lilithsthrone.utils.colours.PresetColour;
  */
 public enum LipSize {
 
-	ZERO_THIN(0, "thin", PresetColour.GENERIC_SIZE_ONE, false),
-	ONE_AVERAGE(1, "average-sized", PresetColour.GENERIC_SIZE_TWO, false),
-	TWO_FULL(2, "full", PresetColour.GENERIC_SIZE_THREE, false),
-	THREE_PLUMP(3, "plump", PresetColour.GENERIC_SIZE_FOUR, false),
-	FOUR_HUGE(4, "huge", PresetColour.GENERIC_SIZE_FIVE, false),
-	FIVE_MASSIVE(5, "massive", PresetColour.GENERIC_SIZE_SIX, false),
-	SIX_GIGANTIC(6, "gigantic", PresetColour.GENERIC_SIZE_SEVEN, true),
-	SEVEN_ABSURD(7, "absurdly colossal", PresetColour.GENERIC_SIZE_EIGHT, true);
+	ZERO_THIN(0, Util.newArrayListOfValues("thin", "slim", "meager"), PresetColour.GENERIC_SIZE_ONE, false),
+	ONE_AVERAGE(1, Util.newArrayListOfValues("average", "soft", "delicate"), PresetColour.GENERIC_SIZE_TWO, false),
+	TWO_FULL(2, Util.newArrayListOfValues("full", "kissable"), PresetColour.GENERIC_SIZE_THREE, false),
+	THREE_PLUMP(3, Util.newArrayListOfValues("large", "plump"), PresetColour.GENERIC_SIZE_FOUR, false),
+	FOUR_HUGE(4, Util.newArrayListOfValues("thick", "huge", "pouty"), PresetColour.GENERIC_SIZE_FIVE, false),
+	FIVE_MASSIVE(5, Util.newArrayListOfValues("pillowy", "plush"), PresetColour.GENERIC_SIZE_SIX, false),
+	SIX_GIGANTIC(6, Util.newArrayListOfValues("massive", "fat") , PresetColour.GENERIC_SIZE_SEVEN, true),
+	SEVEN_ABSURD(7, Util.newArrayListOfValues("gigantic"), PresetColour.GENERIC_SIZE_EIGHT, true);
 	
 	
 	private int value;
-	private String descriptor;
+	private List<String> names;
 	private Colour colour;
 	private boolean impedesSpeech;
 
-	private LipSize(int value, String descriptor, Colour colour, boolean impedesSpeech) {
+	private LipSize(int value, List<String> names, Colour colour, boolean impedesSpeech) {
 		this.value = value;
-		this.descriptor = descriptor;
+		this.names = names;
 		this.colour = colour;
 		this.impedesSpeech = impedesSpeech;
 	}
@@ -37,7 +39,7 @@ public enum LipSize {
 	}
 
 	public String getName() {
-		return descriptor;
+		return Util.randomItemFrom(names);
 	}
 	
 	public static LipSize getLipSizeFromInt(int index) {

@@ -315,7 +315,7 @@ public abstract class GameCharacter implements XMLSaving {
 	public static final int MAX_COMBAT_MOVES = 8;
 	public static final int DEFAULT_COMBAT_AP = 3;
 
-	public static final int MINIMUM_AGE = 14;
+	public static final int MINIMUM_AGE = 15;
 	
 	public static final int DEFAULT_TIME_START_VALUE = -1;
 	
@@ -25054,11 +25054,13 @@ public abstract class GameCharacter implements XMLSaving {
 	public List<AbstractRace> getSelfTransformationRaces(boolean includeNoneRace) {
 		List<AbstractRace> races = new ArrayList<>();
 		
+		ArrayList<AbstractRace> unavailableRaces = Util.newArrayListOfValues(Race.ELEMENTAL, Race.SLIME); // Never have these TF options
+		
 		if(this.getSubspeciesOverrideRace()==Race.DEMON) {
 			races.add(Race.NONE);
 			races.add(Race.DEMON);
 			
-			ArrayList<AbstractRace> unavailableRaces = Util.newArrayListOfValues(Race.ELEMENTAL, Race.SLIME); // Never have these TF options
+			
 			
 			if(this.hasPerkAnywhereInTree(Perk.POWER_OF_LOVIENNE_2) || this.hasPerkAnywhereInTree(Perk.POWER_OF_LOVIENNE_2_DEMON)) { // I'm assuming you defeat Lovienne last
 				races.addAll(Race.allRaces);
@@ -25103,6 +25105,11 @@ public abstract class GameCharacter implements XMLSaving {
 			races.add(Race.NONE);
 			races.add(Race.HUMAN);
 			races.add(Race.FOX_MORPH);
+		}
+		
+		if(this.isElemental()) {
+			races.addAll(Race.allRaces);
+			races.removeAll(unavailableRaces);
 		}
 		
 		if(!includeNoneRace) {

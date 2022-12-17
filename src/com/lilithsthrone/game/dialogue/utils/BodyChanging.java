@@ -2184,7 +2184,7 @@ public class BodyChanging {
 			StringBuilder sb = new StringBuilder();
 			List<String> partsList = new ArrayList<>();
 			for(BodyPartInterface part : body.getAllBodyParts()) {
-				if(!BodyChanging.getTarget().getSelfTransformationRaces().contains(part.getType().getRace())) {
+				if(!(BodyChanging.getTarget().getSelfTransformationRaces().contains(part.getType().getRace())) ) {
 					if(sb.length()==0) {
 						sb.append("[npc.NameIsFull] unable to transform into the associated race for the following parts:");
 						sb.append("<br/>");

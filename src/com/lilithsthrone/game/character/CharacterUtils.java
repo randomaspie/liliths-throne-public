@@ -2493,7 +2493,7 @@ public class CharacterUtils {
 		
 		if(lowlife) {
 			// High chance to be slovenly:
-			if(Math.random()<0.25f) {
+			if(Math.random()<0.05f) {
 				character.addPersonalityTrait(PersonalityTrait.SLOVENLY);
 			}
 			
