@@ -4235,10 +4235,10 @@ public class UtilText {
 				
 				switch(character.getFemininity()) {
 					case FEMININE_STRONG:
-						descriptor = UtilText.returnStringAtRandom("very feminine", "beautiful", "gorgeous");
+						descriptor = UtilText.returnStringAtRandom("very feminine", "beautiful", "womanly", "ladylike", "gorgeous");
 						break;
 					case FEMININE:
-						descriptor = UtilText.returnStringAtRandom("pretty", "feminine", "cute");
+						descriptor = UtilText.returnStringAtRandom("pretty", "feminine", "delicate", "cute");
 						break;
 					case ANDROGYNOUS:
 						descriptor = UtilText.returnStringAtRandom("androgynous");

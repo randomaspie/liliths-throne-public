@@ -105,7 +105,7 @@
 		<feralPluralFemaleName><![CDATA[spiders]]></feralPluralFemaleName>
 		<legConfiguration>ARACHNID</legConfiguration>
 		<sizeHeight>true</sizeHeight>
-		<size>200</size>
+		<size>220</size>
 		<breastRowCount>0</breastRowCount>
 		<nipplesPerBreastCount>1</nipplesPerBreastCount>
 		<crotchBreastRowCount>0</crotchBreastRowCount>
@@ -118,7 +118,7 @@
 		[npc.NamePos] spider-like body is strong and agile, and [npc.she] [npc.has] a primal urge to spin a web and wait for victims.
 	]]></statusEffectDescription>
 	<statusEffectAttributeModifiers>
-		<attribute value="10">MAJOR_PHYSIQUE</attribute>
+		<attribute value="15">MAJOR_PHYSIQUE</attribute>
 		<attribute value="5">MAJOR_ARCANE</attribute> 
 		<attribute value="15">DAMAGE_POISON</attribute>
 		<attribute value="40">CRITICAL_DAMAGE</attribute>

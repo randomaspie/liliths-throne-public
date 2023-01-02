@@ -57,6 +57,17 @@
     
   </coreAttributes>
 
+  <sexAttributesSelf>
+		<penetration>
+			<length>18</length>
+			<girth>4</girth>
+			<modifiers>
+				<mod>RIBBED</mod>
+			</modifiers>
+		</penetration>
+		<orifice/>
+	</sexAttributesSelf>
+
   <displacementText type="REMOVE_OR_EQUIP">
     <playerSelf>
       <![CDATA[You pull out the anal beads from your [pc.ass+].]]>

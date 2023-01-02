@@ -27,6 +27,10 @@ public class Name {
 	// Some help from behindthename.com's name lists to find unusual forms and/or same-letter names.
 	// Name etymologies / explanations omitted to comply with their terms of use about redistributing their article contents.
 	private static List<NameTriplet> human = (Util.newArrayListOfValues(
+
+					new NameTriplet("Andrew", "Andi", "Andrea"),
+					new NameTriplet("Finn", "Fin", "Fiona"),
+
 					new NameTriplet("Alexander", "Alex", "Alexandria"),
 					new NameTriplet("Alexius", "Alex", "Alexia"),
 					new NameTriplet("Alex", "Alex", "Alex"),

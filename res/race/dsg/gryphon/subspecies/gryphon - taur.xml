@@ -108,11 +108,11 @@
 	<nameAnthro>
 		<namesDefault>
 			<name><![CDATA[gryphon]]></name>
-			<namePlural><![CDATA[gryphon]]></namePlural>
+			<namePlural><![CDATA[gryphons]]></namePlural>
 			<singularMaleName><![CDATA[gryphon]]></singularMaleName>
 			<singularFemaleName><![CDATA[gryphon]]></singularFemaleName>
-			<pluralMaleName><![CDATA[gryphon]]></pluralMaleName>
-			<pluralFemaleName><![CDATA[gryphon]]></pluralFemaleName>
+			<pluralMaleName><![CDATA[gryphons]]></pluralMaleName>
+			<pluralFemaleName><![CDATA[gryphons]]></pluralFemaleName>
 		</namesDefault>
 	</nameAnthro>
 	
@@ -146,7 +146,7 @@
 		<!-- Whether or not this feral form's size is measured as height from floor to head, as for most mammals (true), or from head to tail (false), as for alligators and other low-lying animals which are far longer than they are tall. -->
 		<sizeHeight>true</sizeHeight>
 		<!-- The height/length of this subspecies' feral form, measured in cm. -->
-		<size>120</size>
+		<size>160</size>
 		
 		<!-- The number of breast rows this feral form has on their chest.
 		This will usually be 0, as it refers to breasts in the position of humans, which most animals lack. -->

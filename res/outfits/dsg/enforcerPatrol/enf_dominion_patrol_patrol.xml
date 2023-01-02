@@ -22,7 +22,7 @@
 		<!-- Which leg configurations can equip this outfit. For a list of legConfigurations, see: https://github.com/Innoxia/liliths-throne-public/blob/dev/src/com/lilithsthrone/game/character/body/valueEnums/LegConfiguration.java -->
 		<acceptableLegConfigurations>
 			<legConfiguration>BIPEDAL</legConfiguration>
-			<legConfiguration>TAUR</legConfiguration>
+			<legConfiguration>QUADRUPEDAL</legConfiguration>
 			<legConfiguration>TAIL_LONG</legConfiguration>
 			<legConfiguration>ARACHNID</legConfiguration>
 		</acceptableLegConfigurations>
@@ -205,6 +205,20 @@
 			<uniqueClothing>
 				<conditional><![CDATA[condShoesAndSocks]]></conditional>
 				<clothing colour="CLOTHING_BLACK" colourSecondary="CLOTHING_BLACK" colourTertiary="CLOTHING_STEEL" enchantmentKnown="true" id="dsg_eep_tacequipset_cboots" isDirty="false">
+				</clothing>
+			</uniqueClothing>
+
+			<!-- Taur Trousers sometimes (if a taur) -->
+			<uniqueClothing>
+				<conditional><![CDATA[npc.getLegConfiguration()=LEG_CONFIGURATION_QUADRUPEDAL && (!condFeminine) && (!condChance66)]]></conditional>
+				<clothing colour="CLOTHING_BLUE" colourSecondary="CLOTHING_BLACK" colourTertiary="CLOTHING_STEEL" enchantmentKnown="true" id="boondocks_Taur_policia_taur_enforcer_trousers" isDirty="false">
+				</clothing>
+			</uniqueClothing>
+
+			<!-- Taur Skirt sometimes (if a taur) -->
+			<uniqueClothing>
+				<conditional><![CDATA[npc.getLegConfiguration()=LEG_CONFIGURATION_QUADRUPEDAL && condFeminine && (!condChance66)]]></conditional>
+				<clothing colour="CLOTHING_BLUE" colourSecondary="CLOTHING_BLACK" colourTertiary="CLOTHING_STEEL" enchantmentKnown="true" id="boondocks_Taur_policia_taur_enforcer_skirt" isDirty="false">
 				</clothing>
 			</uniqueClothing>
 			

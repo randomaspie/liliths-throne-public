@@ -144,7 +144,8 @@ public class CMSpecialAttack {
         
         @Override
         public Value<Boolean, String> isAvailableFromSpecialCase(GameCharacter source) {
-            return new Value<>(source.getArmType().equals(ArmType.CAT_MORPH), "Available to characters with feline claws.");
+            return new Value<>(
+                (source.getArmType().equals(ArmType.CAT_MORPH) ) || source.getArmType().equals(ArmType.getArmTypeFromId("innoxia_panther_arm")), "Available to characters with feline claws.");
         }
 
         @Override

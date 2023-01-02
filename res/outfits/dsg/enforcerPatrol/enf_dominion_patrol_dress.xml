@@ -22,6 +22,7 @@
 		<!-- WhatWhich leg configurations can equip this outfit. For a list of legConfigurations, see: https://github.com/Innoxia/liliths-throne-public/blob/dev/src/com/lilithsthrone/game/character/body/valueEnums/LegConfiguration.java -->
 		<acceptableLegConfigurations>
 			<legConfiguration>BIPEDAL</legConfiguration>
+			<legConfiguration>QUADRUPEDAL</legConfiguration>
 		</acceptableLegConfigurations>
 		
 		<!-- The condition that needs to be satisfied for someone to generate this outfit. "npc.hasFetish(FETISH_EXHIBITIONIST)" should probably always be taken into account. This conditional instance does NOT support the "clothingConditionalX" elements.
@@ -49,6 +50,8 @@
 		<condConstable constant="true"><![CDATA[npc.getHistory()==OCCUPATION_NPC_ENFORCER_PATROL_CONSTABLE]]></condConstable>
 		<condSergeant constant="true"><![CDATA[npc.getHistory()==OCCUPATION_NPC_ENFORCER_PATROL_SERGEANT]]></condSergeant>
 		<condInspector constant="true"><![CDATA[npc.getHistory()==OCCUPATION_NPC_ENFORCER_PATROL_INSPECTOR]]></condInspector>
+
+		<condShoesAndSocks constant="true"><![CDATA[npc.getLegConfiguration()==LEG_CONFIGURATION_BIPEDAL && npc.getFootStructure()!=FOOT_STRUCTURE_UNGULIGRADE]]></condShoesAndSocks>
 		
 		<!-- "presetColourGroupX" groups have one of their defined "randomColour"s randomly chosen for further use in this XML file. You can have up to 20 "presetColourGroupX"s, but the numbers must be consecutive. (i.e. You can have "presetColourGroup1", "presetColourGroup2", and "presetColourGroup3", but NOT "presetColourGroup1", "presetColourGroup2", and "presetColourGroup4", as that skips out a "3".)
 		Accepted values can be found here: https://github.com/Innoxia/liliths-throne-public/blob/dev/src/com/lilithsthrone/utils/colours/PresetColour.java -->
@@ -255,49 +258,64 @@
 			
 			<!--Feminine pants or skirt, 66% chance of skirt during SPRING, SUMMER, and AUTUMN, pants always selected during WINTER-->
 			<uniqueClothing>
-				<conditional><![CDATA[condChance66 && (condSpringOrAutumn || condSummer) && condFeminine]]></conditional>
+				<conditional><![CDATA[condShoesAndSocks && condChance66 && (condSpringOrAutumn || condSummer) && condFeminine]]></conditional>
 				<clothing colour="CLOTHING_BLACK" colourSecondary="CLOTHING_GOLD" enchantmentKnown="true" id="dsg_eep_servequipset_enfskirt" isDirty="false"></clothing>
 			</uniqueClothing>
 			
 			<uniqueClothing>
-				<conditional><![CDATA[((!condChance66) || condWinter) && condFeminine]]></conditional>
+				<conditional><![CDATA[(condShoesAndSocks && (!condChance66) || condWinter) && condFeminine]]></conditional>
 				<clothing colour="CLOTHING_BLACK" colourSecondary="CLOTHING_PINK" colourTertiary="CLOTHING_GOLD" enchantmentKnown="true" id="dsg_eep_servequipset_enfdslacks" isDirty="false"></clothing>
 			</uniqueClothing>
 			
 			<!--Masculine pants-->
 			<uniqueClothing>
-				<conditional><![CDATA[!condFeminine]]></conditional>
+				<conditional><![CDATA[condShoesAndSocks && !condFeminine]]></conditional>
 				<clothing colour="CLOTHING_BLACK" colourSecondary="CLOTHING_BLUE" colourTertiary="CLOTHING_GOLD" enchantmentKnown="true" id="dsg_eep_servequipset_enfdslacks" isDirty="false"></clothing>
 			</uniqueClothing>
 			
 			<!--Hosery always goes with a skirt-->
 			<uniqueClothing>
-				<conditional><![CDATA[condChance66 && (condSpringOrAutumn || condSummer) && condFeminine]]></conditional>
+				<conditional><![CDATA[condShoesAndSocks && condChance66 && (condSpringOrAutumn || condSummer) && condFeminine]]></conditional>
 				<clothing colour="CLOTHING_BLACK" enchantmentKnown="true" id="innoxia_sock_pantyhose" isDirty="false"></clothing>
 			</uniqueClothing>
 			
 			<!--Socks always go with pants-->
 			<uniqueClothing>
-				<conditional><![CDATA[(!condFeminine) || (((!condChance66) || condWinter) && condFeminine)]]></conditional>
+				<conditional><![CDATA[condShoesAndSocks && (!condFeminine) || (((!condChance66) || condWinter) && condFeminine)]]></conditional>
 				<clothing colour="CLOTHING_BLACK" enchantmentKnown="true" id="innoxia_sock_socks" isDirty="false"></clothing>
 			</uniqueClothing>
 			
 			<!--Feminine pumps-->
 			<uniqueClothing>
-				<conditional><![CDATA[condFeminine && !(condWinter && condSnow)]]></conditional>
+				<conditional><![CDATA[condShoesAndSocks && condFeminine && !(condWinter && condSnow)]]></conditional>
 				<clothing colour="CLOTHING_BLACK" enchantmentKnown="true" id="dsg_eep_servequipset_enfpumps" isDirty="false"></clothing>
 			</uniqueClothing>
 			
 			<!--Masculine shoes-->
 			<uniqueClothing>
-				<conditional><![CDATA[(!condFeminine) && !(condWinter && condSnow)]]></conditional>
+				<conditional><![CDATA[condShoesAndSocks && (!condFeminine) && !(condWinter && condSnow)]]></conditional>
 				<clothing colour="CLOTHING_BLACK" colourSecondary="CLOTHING_BLACK" colourTertiary="CLOTHING_BLACK" enchantmentKnown="true" id="innoxia_foot_mens_smart_shoes" isDirty="false"></clothing>
 			</uniqueClothing>
 			
 			<!--Jackboots always goes with a greatcoat-->
 			<uniqueClothing>
-				<conditional><![CDATA[condWinter && condSnow]]></conditional>
+				<conditional><![CDATA[condShoesAndSocks && condWinter && condSnow]]></conditional>
 				<clothing colour="CLOTHING_BLACK" enchantmentKnown="true" id="dsg_eep_servequipset_enfjackboots" isDirty="false"></clothing>
+			</uniqueClothing>
+
+
+			<!-- Taur Trousers always (if a taur) -->
+			<uniqueClothing>
+				<conditional><![CDATA[npc.getLegConfiguration()=LEG_CONFIGURATION_QUADRUPEDAL && (!condFeminine)]]></conditional>
+				<clothing colour="CLOTHING_BLUE" colourSecondary="CLOTHING_BLACK" colourTertiary="CLOTHING_STEEL" enchantmentKnown="true" id="boondocks_Taur_policia_taur_enforcer_trousers" isDirty="false">
+				</clothing>
+			</uniqueClothing>
+
+			<!-- Taur Skirt always (if a taur) -->
+			<uniqueClothing>
+				<conditional><![CDATA[npc.getLegConfiguration()=LEG_CONFIGURATION_QUADRUPEDAL && condFeminine]]></conditional>
+				<clothing colour="CLOTHING_BLUE" colourSecondary="CLOTHING_BLACK" colourTertiary="CLOTHING_STEEL" enchantmentKnown="true" id="boondocks_Taur_policia_taur_enforcer_skirt" isDirty="false">
+				</clothing>
 			</uniqueClothing>
 			
 		</guaranteedClothingEquips>
