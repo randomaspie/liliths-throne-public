@@ -1188,10 +1188,9 @@ public abstract class AbstractStatusEffect {
 	
 	public static boolean isExposedParts(GameCharacter target, boolean requiresBreastsExposed, boolean requiresGenitalsExposed) {
 		boolean breastsExposed = (((target.hasBreasts() || target.isFeminine()) && target.isCoverableAreaVisible(CoverableArea.NIPPLES)) || (target.hasBreastsCrotch() && target.isCoverableAreaVisible(CoverableArea.NIPPLES_CROTCH)));
-		boolean genitalsExposed = (target.isCoverableAreaVisible(CoverableArea.ANUS) || (target.isCoverableAreaVisible(CoverableArea.PENIS) && target.hasPenis()) || (target.isCoverableAreaVisible(CoverableArea.VAGINA) && target.hasVagina()));
+		boolean genitalsExposed = (target.isCoverableAreaVisible(CoverableArea.ANUS) || (target.isCoverableAreaVisible(CoverableArea.PENIS) && target.hasPenis()) || (target.isCoverableAreaVisible(CoverableArea.VAGINA) && target.hasVagina())) && target.getLegConfiguration().isGenitalsExposed(target);
 		
 		return !Main.game.isInSex()
-				&& target.getLegConfiguration().isGenitalsExposed(target)
 				&& (requiresBreastsExposed?breastsExposed:!breastsExposed)
 				&& (requiresGenitalsExposed?genitalsExposed:!genitalsExposed);
 	}

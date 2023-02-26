@@ -7354,7 +7354,7 @@ public class StatusEffect {
 		public boolean isConditionsMet(GameCharacter target) {
 			return !target.hasFetish(Fetish.FETISH_EXHIBITIONIST)
 					&& (target.getLegConfiguration()==LegConfiguration.BIPEDAL || ((target.hasBreasts() || target.isFeminine()) && target.isCoverableAreaVisible(CoverableArea.NIPPLES)))
-					&& !target.isFeral()
+					&& !(target.isFeral() && !target.getBody().isFeralOrHasLegConfiguration())
 					&& isExposedParts(target, true, false);
 		}
 		@Override

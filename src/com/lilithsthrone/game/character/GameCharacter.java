@@ -29869,8 +29869,8 @@ public abstract class GameCharacter implements XMLSaving {
 	 * This will always be the same as the number of legs this character has, as tentacles are just leg-replacements.
 	 */
 	public int getTentacleCount() {//TODO Tentacle count wasn't being set properly in leg type setting. Find a better fix for this.
-		return this.getLegCount();
-//		return body.getTentacle().getTentacleCount();
+		//return this.getLegCount();
+		return body.getTentacle().getTentacleCount();
 	}
 	public String setTentacleCount(int tentacleCount) {
 		return body.getTentacle().setTentacleCount(this, tentacleCount);
